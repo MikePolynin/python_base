@@ -21,7 +21,8 @@ violator_songs = [
 # где a, это число которое надо округлить, а b количество знаков после запятой
 # более подробно про функцию round смотрите в документации https://docs.python.org/3/search.html?q=round
 
-# TODO здесь ваш код
+songs_duration_1 = round(violator_songs[3][1] + violator_songs[5][1] + violator_songs[8][1], 2)
+print('Три песни звучат ' + str(songs_duration_1) + ' минут')
 
 # Есть словарь песен группы Yellow со временем звучания с точностью до долей минут
 pocket_universe_songs = {
@@ -40,8 +41,11 @@ pocket_universe_songs = {
 
 # Распечатайте общее время звучания трех песен: 'On Track', 'To the Sea' и 'Beyond Mirrors'
 #   А другие три песни звучат приблизительно ХХХ минут
-
-# TODO здесь ваш код
+on_track_duration = pocket_universe_songs.get('On Track')
+to_the_sea_duration = pocket_universe_songs.get('To the Sea')
+beyond_mirrors_duration = pocket_universe_songs.get('Beyond Mirrors')
+songs_duration_2 = round(on_track_duration + to_the_sea_duration + beyond_mirrors_duration)
+print('А другие три песни звучат приблизительно ' + str(songs_duration_2) + ' минут')
 
 # Обратите внимание, что делать много вычислений внутри print() - плохой стиль.
 # Лучше заранее вычислить необходимое, а затем в print(xxx, yyy, zzz)
