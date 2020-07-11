@@ -21,3 +21,6 @@ print('Рост отца - ' + str(my_family_height[1][1]) + ' см')
 #   Общий рост моей семьи - ХХ см
 sum_height = my_family_height[0][1] + my_family_height[1][1] + my_family_height[2][1] + my_family_height[3][1]
 print('Общий рост моей семьи - ' + str(sum_height) + ' см')
+
+# TODO, Михаил, суть Вы правильно поняли,
+#  давайте попробуем для примере не приводить переменные в print к str, а "+" поменять на ",".
