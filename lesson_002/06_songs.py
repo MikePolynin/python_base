@@ -22,7 +22,7 @@ violator_songs = [
 # более подробно про функцию round смотрите в документации https://docs.python.org/3/search.html?q=round
 
 songs_duration_1 = round(violator_songs[3][1] + violator_songs[5][1] + violator_songs[8][1], 2)
-print('Три песни звучат ' + str(songs_duration_1) + ' минут')
+print('Три песни звучат', songs_duration_1, 'минут')
 
 # Есть словарь песен группы Yellow со временем звучания с точностью до долей минут
 pocket_universe_songs = {
@@ -45,9 +45,7 @@ on_track_duration = pocket_universe_songs.get('On Track')
 to_the_sea_duration = pocket_universe_songs.get('To the Sea')
 beyond_mirrors_duration = pocket_universe_songs.get('Beyond Mirrors')
 songs_duration_2 = round(on_track_duration + to_the_sea_duration + beyond_mirrors_duration)
-print('А другие три песни звучат приблизительно ' + str(songs_duration_2) + ' минут')
+print('А другие три песни звучат приблизительно', songs_duration_2, 'минут')
 
 # Обратите внимание, что делать много вычислений внутри print() - плохой стиль.
 # Лучше заранее вычислить необходимое, а затем в print(xxx, yyy, zzz)
-# TODO, Михаил, суть Вы правильно поняли,
-#  давайте попробуем для примере не приводить переменные в print к str, а "+" поменять на ",".
