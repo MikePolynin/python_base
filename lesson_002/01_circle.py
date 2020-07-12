@@ -40,4 +40,4 @@ print(radius > distance_2)
 # False
 # False
 
-
+# зачёт!

@@ -27,3 +27,5 @@ lion_number = zoo.index('lion') + 1
 lark_number = zoo.index('lark') + 1
 print('Lion cage - ', lion_number)
 print('Lark cage - ', lark_number)
+
+# зачёт!
