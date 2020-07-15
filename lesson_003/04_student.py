@@ -11,4 +11,14 @@
 
 educational_grant, expenses = 10000, 12000
 
-# TODO здесь ваш код
+total_expenses = expenses
+total_educational_grant = educational_grant
+
+for _ in range(9):
+    expenses = 1.03 * expenses
+    total_expenses += expenses
+    total_educational_grant += educational_grant
+
+dif = round(total_expenses - total_educational_grant, 2)
+
+print('Студенту надо попросить', dif, 'рублей')
