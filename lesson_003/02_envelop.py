@@ -21,11 +21,7 @@ paper_x, paper_y = 8, 9
 # paper_x, paper_y = 9, 11
 # (просто раскоментировать нужную строку и проверить свой код)
 
-if paper_x > envelop_x and paper_x > paper_y:
-    print('НЕТ')
-elif paper_y > envelop_x and paper_y > envelop_y:
-    print('НЕТ')
-elif paper_x <= envelop_x and paper_y <= envelop_y:
+if paper_x <= envelop_x and paper_y <= envelop_y:
     print('ДА')
 elif paper_x <= envelop_y and paper_y <= envelop_x:
     print('ДА')
@@ -59,11 +55,7 @@ brick_x, brick_y, brick_z = 11, 10, 2
 # brick_x, brick_y, brick_z = 3, 11, 6
 # (просто раскоментировать нужную строку и проверить свой код)
 
-if hole_x < brick_x and hole_x < brick_y and hole_x < brick_z:
-    print('НЕТ')
-elif hole_y < brick_x and hole_y < brick_y and hole_y < brick_z:
-    print('НЕТ')
-elif brick_x <= hole_x and brick_y <= hole_y:
+if brick_x <= hole_x and brick_y <= hole_y:
     print('ДА')
 elif brick_y <= hole_x and brick_x <= hole_y:
     print('ДА')
