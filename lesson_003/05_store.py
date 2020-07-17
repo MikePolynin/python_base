@@ -63,4 +63,5 @@ for product, code in goods.items():
         cost += item.get('price') * item.get('quantity')
     print(product, '-', quantity, 'шт, стоимость', cost, 'руб')
 
-# зачёт!
+# TODO, Михаил, пожалуйста, обратите внимание, название lists очень похоже на стандартноеназвание списко в python.
+#  Давайте придумаем другое подходящее название для этой переменной.
