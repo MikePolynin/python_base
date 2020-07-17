@@ -57,11 +57,8 @@ store = {
 for product, code in goods.items():
     quantity = 0
     cost = 0
-    lists = store.get(code)
-    for item in lists:
+    catalog = store.get(code)
+    for item in catalog:
         quantity += item.get('quantity')
         cost += item.get('price') * item.get('quantity')
     print(product, '-', quantity, 'шт, стоимость', cost, 'руб')
-
-# TODO, Михаил, пожалуйста, обратите внимание, название lists очень похоже на стандартноеназвание списко в python.
-#  Давайте придумаем другое подходящее название для этой переменной.
