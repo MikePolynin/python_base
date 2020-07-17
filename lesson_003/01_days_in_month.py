@@ -27,3 +27,5 @@ all_months = {
 }
 
 print(all_months.get(month, 'Некорректный ввод'))
+
+# зачёт!

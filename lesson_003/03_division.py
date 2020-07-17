@@ -16,3 +16,5 @@ while a_count >= b:
     a_count -= b
     result += 1
 print('Целочисленное деление', a, 'на', b, 'дает', result)
+
+# зачёт!
