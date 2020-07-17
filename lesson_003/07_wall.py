@@ -4,10 +4,13 @@
 import simple_draw
 
 for row, y in enumerate(range(0, 625, 52)):
-    if row % 2 == 0:
-        x = 0
-    else:
-        x = -51
+    # if row % 2 == 0:
+    #     x = 0
+    # else:
+    #     x = -51
+
+    x = 0 if row % 2 == 0 else - 51  # Тернарный оператор позволяет сократить кол-во кода
+
     for x in range(x, 613, 102):
         left_bottom = simple_draw.get_point(x, y)
         right_top = simple_draw.get_point(x + 100, y + 50)
@@ -24,3 +27,5 @@ for row, y in enumerate(range(0, 625, 52)):
 #           рисуем кирпич
 
 simple_draw.pause()
+
+# зачёт!
