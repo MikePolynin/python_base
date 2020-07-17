@@ -22,3 +22,5 @@ for _ in range(9):
 dif = round(total_expenses - total_educational_grant, 2)
 
 print('Студенту надо попросить', dif, 'рублей')
+
+# зачёт!

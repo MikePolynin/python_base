@@ -62,3 +62,5 @@ for product, code in goods.items():
         quantity += item.get('quantity')
         cost += item.get('price') * item.get('quantity')
     print(product, '-', quantity, 'шт, стоимость', cost, 'руб')
+
+# зачёт!

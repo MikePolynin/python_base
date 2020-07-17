@@ -32,3 +32,5 @@ for _ in range(10):
     smiles_draw(x, y, simple_draw.random_color())
 
 simple_draw.pause()
+
+# зачёт!

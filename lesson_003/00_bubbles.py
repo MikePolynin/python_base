@@ -27,13 +27,11 @@ for x in range(100, 1001, 100):
     point = sd.get_point(x, 100)
     draw_bubble(point, 5, sd.COLOR_YELLOW)
 
-
 # Нарисовать три ряда по 10 пузырьков
 for y in range(100, 401, 150):
     for x in range(100, 1001, 100):
         point = sd.get_point(x, y)
         draw_bubble(point, 5, sd.COLOR_YELLOW)
-
 
 # Нарисовать 100 пузырьков в произвольных местах экрана случайными цветами
 for _ in range(100):
@@ -43,3 +41,5 @@ for _ in range(100):
     draw_bubble(point, step, color)
 
 sd.pause()
+
+# зачёт!
