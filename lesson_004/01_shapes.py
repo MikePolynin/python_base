@@ -2,6 +2,7 @@
 
 import simple_draw as sd
 
+
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
 # - треугольника
@@ -36,7 +37,57 @@ import simple_draw as sd
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
-# TODO здесь ваш код
+def draw_triangle(x, y, angle, length):
+    start_point = sd.get_point(x, y)
+    vector_0 = sd.get_vector(start_point, angle, length)
+    vector_1 = sd.get_vector(vector_0.end_point, angle + 120, length)
+    vector_2 = sd.get_vector(vector_1.end_point, angle + 240, length)
+    vector_0.draw()
+    vector_1.draw()
+    vector_2.draw()
+
+
+def draw_square(x, y, angle, length):
+    start_point = sd.get_point(x, y)
+    vector_0 = sd.get_vector(start_point, angle, length)
+    vector_1 = sd.get_vector(vector_0.end_point, angle + 90, length)
+    vector_2 = sd.get_vector(vector_1.end_point, angle + 180, length)
+    vector_3 = sd.get_vector(vector_2.end_point, angle + 270, length)
+    vector_0.draw()
+    vector_1.draw()
+    vector_2.draw()
+    vector_3.draw()
+
+
+def draw_pentagram(x, y, angle, length):
+    start_point = sd.get_point(x, y)
+    vector_0 = sd.get_vector(start_point, angle, length)
+    vector_1 = sd.get_vector(vector_0.end_point, angle + 72, length)
+    vector_2 = sd.get_vector(vector_1.end_point, angle + 144, length)
+    vector_3 = sd.get_vector(vector_2.end_point, angle + 216, length)
+    vector_4 = sd.get_vector(vector_3.end_point, angle + 288, length)
+    vector_0.draw()
+    vector_1.draw()
+    vector_2.draw()
+    vector_3.draw()
+    vector_4.draw()
+
+
+def draw_six_angles(x, y, angle, length):
+    start_point = sd.get_point(x, y)
+    vector_0 = sd.get_vector(start_point, angle, length)
+    vector_1 = sd.get_vector(vector_0.end_point, angle + 60, length)
+    vector_2 = sd.get_vector(vector_1.end_point, angle + 120, length)
+    vector_3 = sd.get_vector(vector_2.end_point, angle + 180, length)
+    vector_4 = sd.get_vector(vector_3.end_point, angle + 240, length)
+    vector_5 = sd.get_vector(vector_4.end_point, angle + 300, length)
+    vector_0.draw()
+    vector_1.draw()
+    vector_2.draw()
+    vector_3.draw()
+    vector_4.draw()
+    vector_5.draw()
+
 
 # Часть 1-бис.
 # Попробуйте прикинуть обьем работы, если нужно будет внести изменения в этот код.
