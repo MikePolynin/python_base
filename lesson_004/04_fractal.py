@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
+# TODO лишний иморт. Михаил, пожалуйста, обратите внимание, в бибилиотеке simple_draw есть метод
+#  для получения случайных чисел. Давайте его найдём и придумаем, как использовать вместе импорта модуля random.
 
 import simple_draw as sd
 
@@ -69,6 +71,7 @@ def draw_branches(start_point, angle, length):
         return
     vector = sd.get_vector(start_point, angle, length)
     vector.draw()
+
     dif_angle = random.uniform(18, 42)
     dif_length = random.uniform(0.6, 0.9)
     draw_branches(vector.end_point, vector.angle + dif_angle, vector.length * dif_length)
@@ -76,5 +79,5 @@ def draw_branches(start_point, angle, length):
 
 
 root_point = sd.get_point(300, 30)
-draw_branches(root_point, 90, 100)
+draw_branches(root_point, 90, 200)
 sd.pause()
