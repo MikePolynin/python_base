@@ -67,17 +67,29 @@ def draw_six_angles(x, y, angle, length, draw_color):
     vector_4.draw(draw_color)
     vector_5.draw(draw_color)
 
-# TODO, Михаил, интересных ход =)
-#  предлагаю фрактал не использовать в этом упрожнении. Запутанно получилось и с ошибками.
+
 def color_select():
+    colors_count = 0
+    color_numbers = {}
+    for key, value in enumerate(all_colors.items()):
+        color_numbers[key] = value[0]
+        colors_count += 1
+    available_colors_print(color_numbers)
     input_color = input('Select a color: ')
 
-    if int(input_color) >= colors_count:
+    while int(input_color) >= colors_count:
         print('Incorrect input')
-        color_select()
+        available_colors_print(color_numbers)
+        input_color = input('Select a color: ')
     else:
-        selected_color = all_colors.get(colors_numbers.get(int(input_color)))
+        selected_color = all_colors.get(color_numbers[int(input_color)])
         drawing(selected_color)
+
+
+def available_colors_print(colors):
+    print('Available colors are:')
+    for color_key, color_value in colors.items():
+        print(color_key, ':', color_value)
 
 
 def drawing(selected_color):
@@ -94,25 +106,15 @@ all_colors = {
     'orange': sd.COLOR_DARK_ORANGE,
     'yellow': sd.COLOR_DARK_YELLOW,
     'cyan': sd.COLOR_CYAN,
-    'blue': sd.COLOR_BLUE, # Михаил, пожалуйста, обратите внимание, как правильно переносить текст при создании словаря.
-              'purple': sd.COLOR_DARK_PURPLE, 'dark yellow': sd.COLOR_DARK_YELLOW, 'dark orange': sd.COLOR_DARK_ORANGE,
-              'dark red': sd.COLOR_DARK_RED, 'dark green': sd.COLOR_DARK_GREEN, 'dark cyan': sd.COLOR_DARK_CYAN,
-              'dark blue': sd.COLOR_DARK_BLUE, 'dark purple': sd.COLOR_DARK_PURPLE}
-
-colors_count = 0
-colors_numbers = {}
-
-print('Available colors are:')
-
-# TODO, вместо циклов for и фракталов, для выбора пользователя, организуйте пожалуйста цикл while.
-# TODO, введёное число пользователя, лучше использовать как ключи нашего словаря.
-#  В таком случае, будет проще проверять наличие нужного цвета. Будет меньше лишних переменных.
-#  В случае неправильного ввода пользователя, пожалуйста выводите повторно список цветов.
-# for key, value in all_colors.items():  # по словарю в цикле лучше с items()
-for color in enumerate(all_colors.keys()):
-    colors_numbers[color[0]] = color[1]
-    print(color[0], ':', color[1])
-    colors_count += 1
+    'blue': sd.COLOR_BLUE,
+    'purple': sd.COLOR_DARK_PURPLE,
+    'dark yellow': sd.COLOR_DARK_YELLOW,
+    'dark orange': sd.COLOR_DARK_ORANGE,
+    'dark red': sd.COLOR_DARK_RED,
+    'dark green': sd.COLOR_DARK_GREEN,
+    'dark cyan': sd.COLOR_DARK_CYAN,
+    'dark blue': sd.COLOR_DARK_BLUE,
+    'dark purple': sd.COLOR_DARK_PURPLE}
 
 color_select()
 

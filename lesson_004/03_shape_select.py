@@ -62,53 +62,34 @@ def draw_six_angles(x, y, angle, length):
     vector_4.draw()
     vector_5.draw()
 
-# TODO, Михаил, интересных ход =)
-#  предлагаю фрактал не использовать в этом упрожнении. Запутанно получилось и с ошибками.
+
 def shape_select():
+    shapes_count = 0
+    shapes_numbers = {}
+    for key, value in enumerate(all_shapes):
+        shapes_numbers[key] = value
+        shapes_count += 1
+    available_shapes_print(shapes_numbers)
     input_shape = input('Select a shape: ')
 
-    if int(input_shape) >= len(all_shapes):
+    while int(input_shape) >= shapes_count:
         print('Incorrect input')
-        shape_select()
+        available_shapes_print(shapes_numbers)
+        input_shape = input('Select a shape: ')
     else:
-        selected_shape = shapes_numbers.get(int(input_shape))
-        drawing(selected_shape)
-
-# TODO лишняя функция
-def drawing(selected_shape):
-    if selected_shape == 'треугольник':
-        draw_triangle(300, 300, 20, 150)
-    elif selected_shape == 'квадрат':
-        draw_square(300, 300, 20, 150)
-    elif selected_shape == 'пятиугольник':
-        draw_pentagram(300, 300, 20, 150)
-    elif selected_shape == 'шестиугольник':
-        draw_six_angles(300, 300, 20, 150)
+        shapes_numbers[int(input_shape)].get('func')(300, 300, 20, 150)
 
 
-all_shapes = ['треугольник', 'квадрат', 'пятиугольник', 'шестиугольник']
-
-# TODO Давайте попробуем так же воспользоваться удобствами словаря.
-#  Где в качестве ключа будем использовать введённый пользователем номер.
-#  А в качества значений название фигуры и её вызов.
-#  Пример с 1 фигурой:
-#  example_dict_figure = {"0": {'figure_name': 'треугольник', 'func': triangle}}
-#  Вызов сможем произвести следующим образом:
-#  figure_func = example_dict_figure["0"]['func']
-#  figure_func()
-#  Это решение позволит сократить количество изменений в коде при добавлении нового цвета.
+def available_shapes_print(shapes):
+    print('Available shapes are:')
+    for shape_key, shape_value in shapes.items():
+        print(shape_key, ':', shape_value.get('fig_name'))
 
 
-shapes_numbers = {}
-# TODO, вместо циклов for и фракталов, для выбора пользователя, организуйте пожалуйста цикл while.
-# TODO, введёное число пользователя, лучше использовать как ключи нашего словаря.
-#  В таком случае, будет проще проверять наличие нужного цвета. Будет меньше лишних переменных.
-#  В случае неправильного ввода пользователя, пожалуйста выводите повторно список цветов.
-
-print('Available shapes are:')
-for shape in enumerate(all_shapes):
-    shapes_numbers[shape[0]] = shape[1]
-    print(shape[0], ':', shape[1])
+all_shapes = [{'fig_name': 'треугольник', 'func': draw_triangle},
+              {'fig_name': 'квадрат', 'func': draw_square},
+              {'fig_name': 'пятиугольник', 'func': draw_pentagram},
+              {'fig_name': 'шестиугольник', 'func': draw_six_angles}]
 
 shape_select()
 

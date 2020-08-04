@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-import random
-# TODO лишний иморт. Михаил, пожалуйста, обратите внимание, в бибилиотеке simple_draw есть метод
-#  для получения случайных чисел. Давайте его найдём и придумаем, как использовать вместе импорта модуля random.
 import simple_draw as sd
 
 # На основе кода из практической части реализовать снегопад:
@@ -17,31 +14,25 @@ N = 20
 # sd.sleep()
 # sd.random_number()
 # sd.user_want_exit()
-# TODO, Михаил, переименуйте пожалуйста переменные "x" и "y".
-#  Исходя из названия, скорее всего в них должна храниться x или y-координата. А там списки целые =)
-x = []
-y = []
+x_list = []
+y_list = []
 length = set()
-# TODO, если шаг 1, то его указывать не нужно =)
-for i in range(0, N, 1):
-    x.append(random.randint(50, 550))
-    y.append(random.randint(450, 600))
+for i in range(0, N):
+    x_list.append(sd.random_number(50, 550))
+    y_list.append(sd.random_number(450, 600))
 
 while len(length) < 20:
-    length.add(random.randint(10, 70))
+    length.add(sd.random_number(10, 70))
 
 length_list = list(length)
 
 while True:
     sd.clear_screen()
-    # TODO, Михаил, давайте попробуем использовать в этом месте enumerate.
-    #  Переменную "i" лучше переназвать так, чтобы отрожала суть содержимого
-    for element in x:
-        i = x.index(element)
-        new_y = y[i] - 10 # предлагаю сделать рандомное отклонение y координат.В таком случае падать будут по разному =)
-        y[i] = new_y
-        point = sd.get_point(x[i], y[i])
-        sd.snowflake(center=point, length=length_list[i])
+    for element_index, element in enumerate(x_list):
+        new_y = y_list[element_index] - sd.random_number(1, 10)
+        y_list[element_index] = new_y
+        point = sd.get_point(x_list[element_index], y_list[element_index])
+        sd.snowflake(center=point, length=length_list[element_index])
     sd.sleep(0.1)
     if sd.user_want_exit():
         break
