@@ -64,19 +64,25 @@ def draw_six_angles(x, y, angle, length):
 
 
 def shape_select():
-    shapes_count = 0
-    shapes_numbers = {}
+    shapes_count = 0  # TODO Лишняя переменная
+    shapes_numbers = {}  # TODO Лишняя переменная
     for key, value in enumerate(all_shapes):
         shapes_numbers[key] = value
         shapes_count += 1
+    # TODO Лишнее действие
+    # TODO Словарь all_shapes в таком случае будет как глобальная переменная.
+    #  Чтобы не путаться сейчас лучше отказаться от награмождения функциями =)
     available_shapes_print(shapes_numbers)
     input_shape = input('Select a shape: ')
 
     while int(input_shape) >= shapes_count:
+        # TODO лучше проверять наличие ключа в словаре. Ключами сделать цифры 1, 2 и т.д.
+        #  Если ввести слово - получаем ошибку. Скрипт перестаёт работать.
         print('Incorrect input')
         available_shapes_print(shapes_numbers)
         input_shape = input('Select a shape: ')
-    else:
+    else:  # TODO В else нет необходимости можно сразу делать после цикла.
+        # TODO Если ключами будут цифры, то таких тяжёлых вычислений не будет =)
         shapes_numbers[int(input_shape)].get('func')(300, 300, 20, 150)
 
 

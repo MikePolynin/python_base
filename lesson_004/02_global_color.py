@@ -69,19 +69,23 @@ def draw_six_angles(x, y, angle, length, draw_color):
 
 
 def color_select():
-    colors_count = 0
-    color_numbers = {}
+    colors_count = 0  # TODO Лишняя переменная
+    color_numbers = {}  # TODO Лишняя переменная
     for key, value in enumerate(all_colors.items()):
         color_numbers[key] = value[0]
-        colors_count += 1
+        colors_count += 1  # TODO Лишнее действие
+    # TODO Словарь all_colors в таком случае будет как глобальная переменная.
+    #  Чтобы не путаться сейчас лучше отказаться от награмождения функциями =)
     available_colors_print(color_numbers)
     input_color = input('Select a color: ')
 
     while int(input_color) >= colors_count:
+        # TODO лучше проверять наличие ключа в словаре. Ключами сделать цифры 1, 2 и т.д.
+        #  Если ввести слово - получаем ошибку. Скрипт перестаёт работать.
         print('Incorrect input')
         available_colors_print(color_numbers)
         input_color = input('Select a color: ')
-    else:
+    else: # TODO В else нет необходимости можно сразу делать после цикла.
         selected_color = all_colors.get(color_numbers[int(input_color)])
         drawing(selected_color)
 
