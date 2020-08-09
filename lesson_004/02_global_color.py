@@ -69,31 +69,24 @@ def draw_six_angles(x, y, angle, length, draw_color):
 
 
 def color_select():
-    colors_count = 0  # TODO Лишняя переменная
-    color_numbers = {}  # TODO Лишняя переменная
-    for key, value in enumerate(all_colors.items()):
-        color_numbers[key] = value[0]
-        colors_count += 1  # TODO Лишнее действие
-    # TODO Словарь all_colors в таком случае будет как глобальная переменная.
-    #  Чтобы не путаться сейчас лучше отказаться от награмождения функциями =)
-    available_colors_print(color_numbers)
-    input_color = input('Select a color: ')
-
-    while int(input_color) >= colors_count:
-        # TODO лучше проверять наличие ключа в словаре. Ключами сделать цифры 1, 2 и т.д.
-        #  Если ввести слово - получаем ошибку. Скрипт перестаёт работать.
-        print('Incorrect input')
-        available_colors_print(color_numbers)
-        input_color = input('Select a color: ')
-    else: # TODO В else нет необходимости можно сразу делать после цикла.
-        selected_color = all_colors.get(color_numbers[int(input_color)])
-        drawing(selected_color)
-
-
-def available_colors_print(colors):
     print('Available colors are:')
-    for color_key, color_value in colors.items():
-        print(color_key, ':', color_value)
+    for key, value in all_colors.items():
+        print(key, ':', value[0])
+    input_color = input('Select a color: ')
+    while input_color.isdigit():
+        while int(input_color) >= len(all_colors):
+            print('Wrong number')
+            print('Available colors are:')
+            for key, value in all_colors.items():
+                print(key, ':', value[0])
+            input_color = input('Select a color: ')
+            break
+        else:
+            drawing(all_colors.get(input_color)[0])
+            break
+    else:
+        print('Incorrect input')
+        exit()
 
 
 def drawing(selected_color):
@@ -104,21 +97,21 @@ def drawing(selected_color):
 
 
 all_colors = {
-    'white': sd.COLOR_WHITE,
-    'black': sd.COLOR_BLACK,
-    'red': sd.COLOR_RED,
-    'orange': sd.COLOR_DARK_ORANGE,
-    'yellow': sd.COLOR_DARK_YELLOW,
-    'cyan': sd.COLOR_CYAN,
-    'blue': sd.COLOR_BLUE,
-    'purple': sd.COLOR_DARK_PURPLE,
-    'dark yellow': sd.COLOR_DARK_YELLOW,
-    'dark orange': sd.COLOR_DARK_ORANGE,
-    'dark red': sd.COLOR_DARK_RED,
-    'dark green': sd.COLOR_DARK_GREEN,
-    'dark cyan': sd.COLOR_DARK_CYAN,
-    'dark blue': sd.COLOR_DARK_BLUE,
-    'dark purple': sd.COLOR_DARK_PURPLE}
+    '0': ['white', sd.COLOR_WHITE],
+    '1': ['black', sd.COLOR_BLACK],
+    '2': ['red', sd.COLOR_RED],
+    '3': ['orange', sd.COLOR_DARK_ORANGE],
+    '4': ['yellow', sd.COLOR_DARK_YELLOW],
+    '5': ['cyan', sd.COLOR_CYAN],
+    '6': ['blue', sd.COLOR_BLUE],
+    '7': ['purple', sd.COLOR_DARK_PURPLE],
+    '8': ['dark yellow', sd.COLOR_DARK_YELLOW],
+    '9': ['dark orange', sd.COLOR_DARK_ORANGE],
+    '10': ['dark red', sd.COLOR_DARK_RED],
+    '11': ['dark green', sd.COLOR_DARK_GREEN],
+    '12': ['dark cyan', sd.COLOR_DARK_CYAN],
+    '13': ['dark blue', sd.COLOR_DARK_BLUE],
+    '14': ['dark purple', sd.COLOR_DARK_PURPLE]}
 
 color_select()
 

@@ -81,9 +81,8 @@ def shape_select():
         print('Incorrect input')
         available_shapes_print(shapes_numbers)
         input_shape = input('Select a shape: ')
-    else:  # TODO В else нет необходимости можно сразу делать после цикла.
         # TODO Если ключами будут цифры, то таких тяжёлых вычислений не будет =)
-        shapes_numbers[int(input_shape)].get('func')(300, 300, 20, 150)
+    shapes_numbers[int(input_shape)].get('func')(300, 300, 20, 150)
 
 
 def available_shapes_print(shapes):
