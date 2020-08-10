@@ -68,33 +68,18 @@ def draw_six_angles(x, y, angle, length, draw_color):
     vector_5.draw(draw_color)
 
 
-# TODO, Михали, пожалуйста, обратите внимание, если ввести не число, спрашивать цвет наш скрипт перестаёт.
-#  Предлагаю уйти от проверок input_color.isdigit() и int(input_color) >= len(all_colors) и просто проверять
-#  наличие ключа в словаре all_colors. Вложенных циклов while быть не должно =)
-#  Ввёл 14 и получил ошубку "ValueError: invalid color name".
-#  Воможно, ошибка в этой части кода "drawing(all_colors.get(input_color)[0])".
-
-
-
 def color_select():
     print('Available colors are:')
     for key, value in all_colors.items():
         print(key, ':', value[0])
     input_color = input('Select a color: ')
-    while input_color.isdigit():
-        while int(input_color) >= len(all_colors):
-            print('Wrong number')
-            print('Available colors are:')
-            for key, value in all_colors.items():
-                print(key, ':', value[0])
-            input_color = input('Select a color: ')
-            break
-        else:
-            drawing(all_colors.get(input_color)[0])  # или так all_colors[input_color][0]
-            break
-    else:
-        print('Incorrect input')
-        exit()
+    while input_color not in all_colors:
+        print('Wrong input')
+        print('Available colors are:')
+        for key, value in all_colors.items():
+            print(key, ':', value[0])
+        input_color = input('Select a color: ')
+    drawing(all_colors[input_color][0])
 
 
 def drawing(selected_color):
@@ -108,18 +93,18 @@ all_colors = {
     '0': ['white', sd.COLOR_WHITE],
     '1': ['black', sd.COLOR_BLACK],
     '2': ['red', sd.COLOR_RED],
-    '3': ['orange', sd.COLOR_DARK_ORANGE],
-    '4': ['yellow', sd.COLOR_DARK_YELLOW],
+    '3': ['orange', sd.COLOR_ORANGE],
+    '4': ['yellow', sd.COLOR_YELLOW],
     '5': ['cyan', sd.COLOR_CYAN],
     '6': ['blue', sd.COLOR_BLUE],
-    '7': ['purple', sd.COLOR_DARK_PURPLE],
+    '7': ['purple', sd.COLOR_PURPLE],
     '8': ['dark yellow', sd.COLOR_DARK_YELLOW],
     '9': ['dark orange', sd.COLOR_DARK_ORANGE],
-    '10': ['dark red', sd.COLOR_DARK_RED],
+    '10': ['dark purple', sd.COLOR_DARK_PURPLE],
     '11': ['dark green', sd.COLOR_DARK_GREEN],
     '12': ['dark cyan', sd.COLOR_DARK_CYAN],
-    '13': ['dark blue', sd.COLOR_DARK_BLUE],
-    '14': ['dark purple', sd.COLOR_DARK_PURPLE]}
+    '13': ['dark red', sd.COLOR_DARK_RED],
+    '14': ['dark blue', sd.COLOR_DARK_BLUE]}
 
 color_select()
 

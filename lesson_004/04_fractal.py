@@ -62,7 +62,7 @@ import simple_draw as sd
 # Пригодятся функции
 # sd.random_number()
 
-sd.resolution = (1200, 1200)
+sd.resolution = (1200, 600)
 
 
 def draw_branches(start_point, angle, length):
