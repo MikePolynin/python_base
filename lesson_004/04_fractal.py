@@ -71,6 +71,10 @@ def draw_branches(start_point, angle, length):
     vector = sd.get_vector(start_point, angle, length)
     vector.draw()
 
+    # TODO, Михаил, пожалуйста, обратите внимание. 1ый угол желательно всегда указывать 90 градусов.
+    #  Первая веточка всегда вверх. А все последующие должны рандомно изменяться отталкиваясь от него.
+    #  Сейчас просто меняются рандомно.
+
     dif_angle_1 = sd.random_number(18, 42)
     dif_length_1 = sd.random_number(6, 9) / 10
     dif_angle_2 = sd.random_number(18, 42)
@@ -80,7 +84,7 @@ def draw_branches(start_point, angle, length):
 
 
 root_point = sd.get_point(300, 30)
-draw_branches(root_point, 90, 200)
+draw_branches(root_point, 90, 100)
 sd.pause()
 # Пожалуйста, приступайте к усложнённому заданию.
 # зачёт!

@@ -68,6 +68,14 @@ def draw_six_angles(x, y, angle, length, draw_color):
     vector_5.draw(draw_color)
 
 
+# TODO, Михали, пожалуйста, обратите внимание, если ввести не число, спрашивать цвет наш скрипт перестаёт.
+#  Предлагаю уйти от проверок input_color.isdigit() и int(input_color) >= len(all_colors) и просто проверять
+#  наличие ключа в словаре all_colors. Вложенных циклов while быть не должно =)
+#  Ввёл 14 и получил ошубку "ValueError: invalid color name".
+#  Воможно, ошибка в этой части кода "drawing(all_colors.get(input_color)[0])".
+
+
+
 def color_select():
     print('Available colors are:')
     for key, value in all_colors.items():
@@ -82,7 +90,7 @@ def color_select():
             input_color = input('Select a color: ')
             break
         else:
-            drawing(all_colors.get(input_color)[0])
+            drawing(all_colors.get(input_color)[0])  # или так all_colors[input_color][0]
             break
     else:
         print('Incorrect input')
