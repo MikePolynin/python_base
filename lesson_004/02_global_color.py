@@ -109,3 +109,5 @@ all_colors = {
 color_select(all_colors)
 
 sd.pause()
+
+# зачёт!
