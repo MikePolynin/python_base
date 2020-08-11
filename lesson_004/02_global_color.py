@@ -68,24 +68,18 @@ def draw_six_angles(x, y, angle, length, draw_color):
     vector_5.draw(draw_color)
 
 
-def color_select():
+def color_select(colors):
     print('Available colors are:')
-    for key, value in all_colors.items():
+    for key, value in colors.items():
         print(key, ':', value[0])
     input_color = input('Select a color: ')
-    while input_color not in all_colors:
+    while input_color not in colors:
         print('Wrong input')
         print('Available colors are:')
-        for key, value in all_colors.items():
+        for key, value in colors.items():
             print(key, ':', value[0])
         input_color = input('Select a color: ')
-    drawing(all_colors[input_color][0])
-# TODO, Сейчас лучше без лишних функций решать, но раз уж мы пошли по этому пути =) ошибка вот в чём:
-#  1. В последующих видео будут объяснять. Функции лучше делать автономными.
-#  Сейчас функция ссылается на внешнюю переменную all_colors. Правильнее передавать ей список цветов как параметр.
-#  2. Почему не работает 'dark purple', dark yellow и т.д., а белый всё равно рисует чёрным:
-#  К примеру, я ввёл "10". Тогда all_colors[10][0] == 'dark purple'. Это название цвета.
-#  Сам цвет в all_colors[10][1], не так ли?)
+    drawing(colors[input_color][1])
 
 
 def drawing(selected_color):
@@ -112,6 +106,6 @@ all_colors = {
     '13': ['dark red', sd.COLOR_DARK_RED],
     '14': ['dark blue', sd.COLOR_DARK_BLUE]}
 
-color_select()
+color_select(all_colors)
 
 sd.pause()
