@@ -18,7 +18,7 @@ N = 5
 snowflakes_list = []
 for i in range(N):
     snowflakes_list.append(
-        [sd.random_number(50, 550), sd.random_number(450, 600), sd.random_number(10, 70), sd.random_number(1, 10)])
+        [sd.random_number(50, 550), sd.random_number(450, 600), sd.random_number(10, 70), sd.random_number(10, 20)])
 
 while True:
     sd.clear_screen()
@@ -27,8 +27,14 @@ while True:
         point = sd.get_point(snowflake[0], snowflake[1])
         sd.snowflake(point, snowflake[2])
         if snowflake[1] <= 0:
-            snowflakes_list[snowflake_index] = [sd.random_number(50, 550), sd.random_number(450, 600),
-                                                sd.random_number(10, 70), sd.random_number(1, 10)]
+            # Пожалуйста, обратите внимание,
+            # как можно осуществить перенос строки при длинных вычислениях
+            snowflakes_list[snowflake_index] = [
+                sd.random_number(50, 550),
+                sd.random_number(450, 600),
+                sd.random_number(10, 70),
+                sd.random_number(1, 10)
+            ]
         snowflake[1] -= snowflake[3]
     sd.sleep(0.1)
     if sd.user_want_exit():
@@ -47,6 +53,7 @@ sd.pause()
 #     если пользователь хочет выйти
 #       прервать цикл
 
+# зачёт первой части. Пожалуйста, приступайте ко второй.
 
 # Часть 2 (делается после зачета первой части)
 #

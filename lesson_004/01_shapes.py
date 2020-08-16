@@ -141,6 +141,7 @@ def draw_pentagram(x, y, angle, length):
     drawing(start_point, angle, 5, length)
 
 
+# Если объединить x и y в одну переменную. Упростим жизнь пользователю =)
 def draw_six_angles(x, y, angle, length):
     start_point = sd.get_point(x, y)
     drawing(start_point, angle, 6, length)
@@ -158,3 +159,5 @@ draw_six_angles(450, 350, 30, 100)
 
 
 sd.pause()
+
+# зачёт!

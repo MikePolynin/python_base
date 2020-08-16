@@ -75,7 +75,9 @@ def shape_select(shapes):
             print(key, ':', value.get('fig_name'))
         input_shape = input('Select a shape: ')
 
-    shapes.get(input_shape).get('func')(300, 300, 20, 150)
+    #  shapes.get(input_shape).get('func')(300, 300, 20, 150)
+    shapes[input_shape]['func'](300, 300, 20, 150)
+    # Ещё, можно так. Чуть короче получилось. Если из цикла вышли, значит input_shape есть в словаре.
 
 
 all_shapes = {'0': {'fig_name': 'треугольник', 'func': draw_triangle},
@@ -86,3 +88,5 @@ all_shapes = {'0': {'fig_name': 'треугольник', 'func': draw_triangle}
 shape_select(all_shapes)
 
 sd.pause()
+
+# зачёт!
