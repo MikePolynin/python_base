@@ -37,62 +37,62 @@ import simple_draw as sd
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
-def draw_triangle(x, y, angle, length):
-    start_point = sd.get_point(x, y)
-    vector_0 = sd.get_vector(start_point, angle, length)
-    vector_1 = sd.get_vector(vector_0.end_point, angle + 120, length)
-    vector_2 = sd.get_vector(vector_1.end_point, angle + 240, length)
-    vector_0.draw()
-    vector_1.draw()
-    vector_2.draw()
-
-
-def draw_square(x, y, angle, length):
-    start_point = sd.get_point(x, y)
-    vector_0 = sd.get_vector(start_point, angle, length)
-    vector_1 = sd.get_vector(vector_0.end_point, angle + 90, length)
-    vector_2 = sd.get_vector(vector_1.end_point, angle + 180, length)
-    vector_3 = sd.get_vector(vector_2.end_point, angle + 270, length)
-    vector_0.draw()
-    vector_1.draw()
-    vector_2.draw()
-    vector_3.draw()
-
-
-def draw_pentagram(x, y, angle, length):
-    start_point = sd.get_point(x, y)
-    vector_0 = sd.get_vector(start_point, angle, length)
-    vector_1 = sd.get_vector(vector_0.end_point, angle + 72, length)
-    vector_2 = sd.get_vector(vector_1.end_point, angle + 144, length)
-    vector_3 = sd.get_vector(vector_2.end_point, angle + 216, length)
-    vector_4 = sd.get_vector(vector_3.end_point, angle + 288, length)
-    vector_0.draw()
-    vector_1.draw()
-    vector_2.draw()
-    vector_3.draw()
-    vector_4.draw()
-
-
-def draw_six_angles(x, y, angle, length):
-    start_point = sd.get_point(x, y)
-    vector_0 = sd.get_vector(start_point, angle, length)
-    vector_1 = sd.get_vector(vector_0.end_point, angle + 60, length)
-    vector_2 = sd.get_vector(vector_1.end_point, angle + 120, length)
-    vector_3 = sd.get_vector(vector_2.end_point, angle + 180, length)
-    vector_4 = sd.get_vector(vector_3.end_point, angle + 240, length)
-    vector_5 = sd.get_vector(vector_4.end_point, angle + 300, length)
-    vector_0.draw()
-    vector_1.draw()
-    vector_2.draw()
-    vector_3.draw()
-    vector_4.draw()
-    vector_5.draw()
-
-
-draw_square(100, 100, 0, 100)
-draw_pentagram(100, 350, 10, 100)
-draw_triangle(450, 100, 20, 100)
-draw_six_angles(450, 350, 30, 100)
+# def draw_triangle(x, y, angle, length):
+#     start_point = sd.get_point(x, y)
+#     vector_0 = sd.get_vector(start_point, angle, length)
+#     vector_1 = sd.get_vector(vector_0.end_point, angle + 120, length)
+#     vector_2 = sd.get_vector(vector_1.end_point, angle + 240, length)
+#     vector_0.draw()
+#     vector_1.draw()
+#     vector_2.draw()
+#
+#
+# def draw_square(x, y, angle, length):
+#     start_point = sd.get_point(x, y)
+#     vector_0 = sd.get_vector(start_point, angle, length)
+#     vector_1 = sd.get_vector(vector_0.end_point, angle + 90, length)
+#     vector_2 = sd.get_vector(vector_1.end_point, angle + 180, length)
+#     vector_3 = sd.get_vector(vector_2.end_point, angle + 270, length)
+#     vector_0.draw()
+#     vector_1.draw()
+#     vector_2.draw()
+#     vector_3.draw()
+#
+#
+# def draw_pentagram(x, y, angle, length):
+#     start_point = sd.get_point(x, y)
+#     vector_0 = sd.get_vector(start_point, angle, length)
+#     vector_1 = sd.get_vector(vector_0.end_point, angle + 72, length)
+#     vector_2 = sd.get_vector(vector_1.end_point, angle + 144, length)
+#     vector_3 = sd.get_vector(vector_2.end_point, angle + 216, length)
+#     vector_4 = sd.get_vector(vector_3.end_point, angle + 288, length)
+#     vector_0.draw()
+#     vector_1.draw()
+#     vector_2.draw()
+#     vector_3.draw()
+#     vector_4.draw()
+#
+#
+# def draw_six_angles(x, y, angle, length):
+#     start_point = sd.get_point(x, y)
+#     vector_0 = sd.get_vector(start_point, angle, length)
+#     vector_1 = sd.get_vector(vector_0.end_point, angle + 60, length)
+#     vector_2 = sd.get_vector(vector_1.end_point, angle + 120, length)
+#     vector_3 = sd.get_vector(vector_2.end_point, angle + 180, length)
+#     vector_4 = sd.get_vector(vector_3.end_point, angle + 240, length)
+#     vector_5 = sd.get_vector(vector_4.end_point, angle + 300, length)
+#     vector_0.draw()
+#     vector_1.draw()
+#     vector_2.draw()
+#     vector_3.draw()
+#     vector_4.draw()
+#     vector_5.draw()
+#
+#
+# draw_square(100, 100, 0, 100)
+# draw_pentagram(100, 350, 10, 100)
+# draw_triangle(450, 100, 20, 100)
+# draw_six_angles(450, 350, 30, 100)
 
 # Часть 1-бис.
 # Попробуйте прикинуть обьем работы, если нужно будет внести изменения в этот код.
@@ -113,6 +113,43 @@ draw_six_angles(450, 350, 30, 100)
 #
 # Не забудте в этой общей функции придумать, как устранить разрыв в начальной/конечной точках рисуемой фигуры
 # (если он есть. подсказка - на последней итерации можно использовать линию от первой точки)
+
+
+def drawing(fig_start_point, start_angel, corners_numbers, length):
+    fig_angel = 360 / corners_numbers
+    start_point = fig_start_point
+    for _ in range(0, corners_numbers - 1):
+        vector = sd.get_vector(start_point, start_angel, length)
+        vector.draw()
+        start_point = vector.end_point
+        start_angel = vector.angle + fig_angel
+    sd.line(start_point, fig_start_point)
+
+
+def draw_triangle(x, y, angle, length):
+    start_point = sd.get_point(x, y)
+    drawing(start_point, angle, 3, length)
+
+
+def draw_square(x, y, angle, length):
+    start_point = sd.get_point(x, y)
+    drawing(start_point, angle, 4, length)
+
+
+def draw_pentagram(x, y, angle, length):
+    start_point = sd.get_point(x, y)
+    drawing(start_point, angle, 5, length)
+
+
+def draw_six_angles(x, y, angle, length):
+    start_point = sd.get_point(x, y)
+    drawing(start_point, angle, 6, length)
+
+
+draw_square(100, 100, 0, 100)
+draw_pentagram(100, 350, 10, 100)
+draw_triangle(450, 100, 20, 100)
+draw_six_angles(450, 350, 30, 100)
 
 # Часть 2-бис.
 # А теперь - сколько надо работы что бы внести изменения в код? Выгода на лицо :)

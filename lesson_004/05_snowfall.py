@@ -6,7 +6,7 @@ import simple_draw as sd
 # - нарисовать падение этих N снежинок
 # - создать список рандомных длин лучей снежинок (от 10 до 100) и пусть все снежинки будут разные
 
-N = 20
+N = 5
 
 # Пригодятся функции
 # sd.get_point()
@@ -14,40 +14,26 @@ N = 20
 # sd.sleep()
 # sd.random_number()
 # sd.user_want_exit()
-x_list = []
-y_list = []
-length = set()
-for i in range(0, N):  # проще range(N)
-    x_list.append(sd.random_number(50, 550))
-    y_list.append(sd.random_number(450, 600))
 
-# TODO, Михаил, предлагаю length заполнять в цикле выше =)
-while len(length) < 20:
-    length.add(sd.random_number(10, 70))
-
-length_list = list(length)
+snowflakes_list = []
+for i in range(N):
+    snowflakes_list.append(
+        [sd.random_number(50, 550), sd.random_number(450, 600), sd.random_number(10, 70), sd.random_number(1, 10)])
 
 while True:
     sd.clear_screen()
-    for element_index, element in enumerate(x_list):
-        new_y = y_list[element_index] - sd.random_number(1, 10)
-        y_list[element_index] = new_y
-        point = sd.get_point(x_list[element_index], y_list[element_index])  # TODO, x_list[element_index] = element?
-        sd.snowflake(center=point, length=length_list[element_index])       #  Давайте тогда сразу использовать element
+    for snowflake_index, snowflake in enumerate(snowflakes_list):
+        snowflake[0] += sd.random_number(-5, 5)
+        point = sd.get_point(snowflake[0], snowflake[1])
+        sd.snowflake(point, snowflake[2])
+        if snowflake[1] <= 0:
+            snowflakes_list[snowflake_index] = [sd.random_number(50, 550), sd.random_number(450, 600),
+                                                sd.random_number(10, 70), sd.random_number(1, 10)]
+        snowflake[1] -= snowflake[3]
     sd.sleep(0.1)
     if sd.user_want_exit():
         break
 sd.pause()
-
-# TODO, Михаил, хороший код! Давайте улучшим.
-#  Необходимо создать снегопад. Давайте придумаем как это сделать. Снежинки после того,
-#  как упали должны появляться сверху экрана.
-#  В остальном хорошо. Пару рекомендаций на Ваше усмотрение:
-#  1. Можно для разнообразия менять координату "x", для того, чтобы падали с небольшими колебаниями.
-#  2. Не будет ли удобнее создать 1 список со снежинками, где снежинка это набор данных (x, y , length)?
-#  Получится список со списками. Возможно станет проще менять координаты, когда всё будет в одном месте.
-
-
 
 # Примерный алгоритм отрисовки снежинок
 #   навсегда
