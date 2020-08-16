@@ -15,31 +15,29 @@ N = 5
 # sd.random_number()
 # sd.user_want_exit()
 
-snowflakes_list = []
-for i in range(N):
-    snowflakes_list.append(
-        [sd.random_number(50, 550), sd.random_number(450, 600), sd.random_number(10, 70), sd.random_number(10, 20)])
-
-while True:
-    sd.clear_screen()
-    for snowflake_index, snowflake in enumerate(snowflakes_list):
-        snowflake[0] += sd.random_number(-5, 5)
-        point = sd.get_point(snowflake[0], snowflake[1])
-        sd.snowflake(point, snowflake[2])
-        if snowflake[1] <= 0:
-            # Пожалуйста, обратите внимание,
-            # как можно осуществить перенос строки при длинных вычислениях
-            snowflakes_list[snowflake_index] = [
-                sd.random_number(50, 550),
-                sd.random_number(450, 600),
-                sd.random_number(10, 70),
-                sd.random_number(1, 10)
-            ]
-        snowflake[1] -= snowflake[3]
-    sd.sleep(0.1)
-    if sd.user_want_exit():
-        break
-sd.pause()
+# snowflakes_list = []
+# for i in range(N):
+#     snowflakes_list.append(
+#         [sd.random_number(50, 550), sd.random_number(450, 600), sd.random_number(10, 70), sd.random_number(10, 20)])
+#
+# while True:
+#     sd.clear_screen()
+#     for snowflake_index, snowflake in enumerate(snowflakes_list):
+#         snowflake[0] += sd.random_number(-5, 5)
+#         point = sd.get_point(snowflake[0], snowflake[1])
+#         sd.snowflake(point, snowflake[2])
+#         if snowflake[1] <= 0:
+#             snowflakes_list[snowflake_index] = [
+#                 sd.random_number(50, 550),
+#                 sd.random_number(450, 600),
+#                 sd.random_number(10, 70),
+#                 sd.random_number(1, 10)
+#             ]
+#         snowflake[1] -= snowflake[3]
+#     sd.sleep(0.1)
+#     if sd.user_want_exit():
+#         break
+# sd.pause()
 
 # Примерный алгоритм отрисовки снежинок
 #   навсегда
@@ -82,9 +80,35 @@ sd.pause()
 #     если пользователь хочет выйти
 #       прервать цикл
 
-
 # Усложненное задание (делать по желанию)
 # - сделать рандомные отклонения вправо/влево при каждом шаге
 # - сделать сугоб внизу экрана - если снежинка долетает до низа, оставлять её там,
 #   и добавлять новую снежинку
 # Результат решения см https://youtu.be/XBx0JtxHiLg
+
+snowflakes_list = []
+for i in range(N):
+    snowflakes_list.append(
+        [sd.random_number(50, 550), sd.random_number(550, 650), sd.random_number(10, 70), sd.random_number(10, 20)])
+
+while True:
+    sd.start_drawing()
+    for snowflake_index, snowflake in enumerate(snowflakes_list):
+        point = sd.get_point(snowflake[0], snowflake[1])
+        sd.snowflake(point, snowflake[2], sd.background_color)
+        if snowflake[1] <= snowflake[2]:
+            snowflakes_list[snowflake_index] = [
+                sd.random_number(50, 550),
+                sd.random_number(550, 650),
+                sd.random_number(10, 70),
+                sd.random_number(1, 10)
+            ]
+        snowflake[1] -= snowflake[3]
+        snowflake[0] += sd.random_number(-5, 5)
+        point = sd.get_point(snowflake[0], snowflake[1])
+        sd.snowflake(point, snowflake[2])
+    sd.finish_drawing()
+    sd.sleep(0.1)
+    if sd.user_want_exit():
+        break
+sd.pause()
