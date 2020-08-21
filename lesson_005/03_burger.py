@@ -47,3 +47,5 @@ def make_burger():
 
 make_double_cheeseburger()
 make_burger()
+
+# зачёт!
