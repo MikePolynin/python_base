@@ -15,36 +15,35 @@
 # Создать рецепт своего бургера, по вашему вкусу.
 # Если не хватает инградиентов - создать соответствующие функции в модуле my_burger
 
-from lesson_005.my_burger import bread, cutlet, cucumber, tomato, mayonnaise, cheese, mustard, ketchup, onion
-# TODO, Нейминг: Михаил, смотрите, есть функция, которая добавляет сыр, называется она просто «сыр».
-#  Давайте придумаем названия нашим функциям так, чтобы они отражали сущность функций. К примеру, "добавить_сыр".
+from lesson_005.my_burger import add_bread, add_cutlet, add_cucumber, add_tomato, add_mayonnaise, add_cheese, \
+    add_mustard, add_ketchup, add_onion
 
 
-def double_cheeseburger():
+def make_double_cheeseburger():
     print('Готовим двойной чизбургер:')
-    bread()
-    cutlet()
-    cheese()
-    cutlet()
-    cheese()
-    cucumber()
-    mustard()
-    ketchup()
-    onion()
-    bread()
+    add_bread()
+    add_cutlet()
+    add_cheese()
+    add_cutlet()
+    add_cheese()
+    add_cucumber()
+    add_mustard()
+    add_ketchup()
+    add_onion()
+    add_bread()
     print('Двойной чизбургер готов')
 
 
-def burger():
+def make_burger():
     print('Готовим гамбургер:')
-    bread()
-    cutlet()
-    mustard()
-    ketchup()
-    onion()
-    bread()
+    add_bread()
+    add_cutlet()
+    add_mustard()
+    add_ketchup()
+    add_onion()
+    add_bread()
     print('Гамбургер готов')
 
 
-double_cheeseburger()
-burger()
+make_double_cheeseburger()
+make_burger()

@@ -1,34 +1,34 @@
-def bread():
+def add_bread():
     print('А теперь добавим булочку')
 
 
-def cutlet():
+def add_cutlet():
     print('А теперь добавим котлету')
 
 
-def cucumber():
+def add_cucumber():
     print('А теперь добавим огурчики')
 
 
-def tomato():
+def add_tomato():
     print('А теперь добавим помидорчики')
 
 
-def mayonnaise():
+def add_mayonnaise():
     print('А теперь добавим майонез')
 
 
-def cheese():
+def add_cheese():
     print('А теперь добавим сыр')
 
 
-def mustard():
+def add_mustard():
     print('А теперь добавим горчицу')
 
 
-def ketchup():
+def add_ketchup():
     print('А теперь добавим кетчуп')
 
 
-def onion():
+def add_onion():
     print('А теперь добавим лук')
