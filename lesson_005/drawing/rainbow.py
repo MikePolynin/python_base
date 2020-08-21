@@ -4,6 +4,9 @@ import simple_draw as sd
 
 sd.resolution = (1500, 600)
 
+
+# TODO, Михаил, пожалуйста, реализуйте этот код в виде функции. Её импортируем в 04_painting.py
+
 rainbow_colors = (sd.COLOR_RED, sd.COLOR_ORANGE, sd.COLOR_YELLOW, sd.COLOR_GREEN,
                   sd.COLOR_CYAN, sd.COLOR_BLUE, sd.COLOR_PURPLE)
 

@@ -16,3 +16,5 @@ for folk in folks_1, folks_2, folks_3, folks_4, folks_5, folks_6, folks_7, folks
     for tenant in folk.folks:
         all_folks.append(tenant)
 print('На районе живут:', delimiter.join(all_folks))
+
+# зачёт!

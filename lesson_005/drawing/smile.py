@@ -4,7 +4,7 @@ import simple_draw
 
 simple_draw.resolution = (1500, 600)
 
-
+# TODO, Михаил, пожалуйста, реализуйте этот код в виде функции. Её импортируем в 04_painting.py
 def smiles_draw(x, y, color):
     point = simple_draw.get_point(x, y)
     simple_draw.circle(point, 50, color)

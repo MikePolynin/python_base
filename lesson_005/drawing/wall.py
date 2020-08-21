@@ -4,6 +4,9 @@ import simple_draw
 
 simple_draw.resolution = (1500, 600)
 
+# TODO, Михаил, пожалуйста, реализуйте этот код в виде функции. Её импортируем в 04_painting.py
+
+
 for row, y in enumerate(range(0, 313, 52)):
     x = 400 if row % 2 == 0 else 351
 

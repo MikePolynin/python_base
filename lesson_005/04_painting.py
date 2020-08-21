@@ -23,6 +23,10 @@ import lesson_005.drawing.wall
 import lesson_005.drawing.tree
 
 
+# TODO, Михаил, в этом коде должны быть только запуски Ваших функций из других Вашим модулей.
+#  Пожалуйста, опишите код в модулях в виде функций и импортируйте функции сюда.
+
+
 def smile(x, y, color):
     from lesson_005.drawing.smile import smiles_draw
     smiles_draw(x, y, color)
@@ -39,6 +43,7 @@ def sun(x, y):
             angle = 45 * line
             simple_draw.sleep(0.1)
         import lesson_005.drawing.snowfall
+        # TODO Все импорты должы быть вначале кода. Перенесите пожалуйста =)
         if simple_draw.user_want_exit():
             break
 

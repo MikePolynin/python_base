@@ -3,6 +3,8 @@ import simple_draw as sd
 
 sd.resolution = (1500, 600)
 
+
+# TODO, Михаил, пожалуйста, реализуйте этот код в виде функции. Её импортируем в 04_painting.py
 N = 5
 
 snowflakes_list = []
