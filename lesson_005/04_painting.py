@@ -25,12 +25,21 @@ from lesson_005.drawing.sun import draw_sun
 from lesson_005.drawing.smile import smiles_draw
 from lesson_005.drawing.snowfall import snowfall
 
-draw_rainbow()
-draw_branches()
+simple_draw.resolution = (1500, 600)
+
+draw_branches(simple_draw.get_point(1000, 30))
 draw_house()
-smiles_draw()
-draw_sun()
-snowfall()
+
+while True:
+    simple_draw.start_drawing()
+    snowfall()
+    draw_sun(400, 500)
+    smiles_draw(578, 181, simple_draw.random_color())
+    draw_rainbow()
+    simple_draw.finish_drawing()
+    simple_draw.sleep(0.2)
+    if simple_draw.user_want_exit():
+        break
 
 # Усложненное задание (делать по желанию)
 # Анимировать картину.

@@ -2,9 +2,7 @@
 
 import simple_draw
 
-simple_draw.resolution = (1500, 600)
 
-# TODO sd.resolution лучше убрать. Иначе может возникнуть непонятный сдвиг в основном файле.
 def draw_house():
     for row, y in enumerate(range(0, 313, 52)):
         x = 400 if row % 2 == 0 else 351
