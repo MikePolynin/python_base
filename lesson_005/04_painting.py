@@ -25,6 +25,8 @@ from lesson_005.drawing.sun import draw_sun
 from lesson_005.drawing.smile import smiles_draw
 from lesson_005.drawing.snowfall import snowfall
 
+
+# TODO, Михаил, нарисуйте пожалуйста радугу, домик и дерево функциями в этом модуле =)
 smiles_draw(578, 181, simple_draw.random_color())
 draw_sun(400, 500)
 snowfall()
