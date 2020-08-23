@@ -21,37 +21,13 @@ import simple_draw
 import lesson_005.drawing.rainbow
 import lesson_005.drawing.wall
 import lesson_005.drawing.tree
+from lesson_005.drawing.sun import draw_sun
+from lesson_005.drawing.smile import smiles_draw
+from lesson_005.drawing.snowfall import snowfall
 
-
-# TODO, Михаил, в этом коде должны быть только запуски Ваших функций из других Вашим модулей.
-#  Пожалуйста, опишите код в модулях в виде функций и импортируйте функции сюда.
-
-
-def smile(x, y, color):
-    from lesson_005.drawing.smile import smiles_draw
-    smiles_draw(x, y, color)
-
-
-def sun(x, y):
-    while True:
-        center = simple_draw.get_point(x, y)
-        simple_draw.circle(center, 40, simple_draw.COLOR_YELLOW, 0)
-        angle = 0
-        for line in range(1, 9):
-            vector = simple_draw.get_vector(center, angle, 90, 5)
-            vector.draw()
-            angle = 45 * line
-            simple_draw.sleep(0.1)
-        import lesson_005.drawing.snowfall
-        # TODO Все импорты должы быть вначале кода. Перенесите пожалуйста =)
-        if simple_draw.user_want_exit():
-            break
-
-
-smile(578, 181, simple_draw.random_color())
-sun(400, 500)
-
-simple_draw.pause()
+smiles_draw(578, 181, simple_draw.random_color())
+draw_sun(400, 500)
+snowfall()
 
 # Усложненное задание (делать по желанию)
 # Анимировать картину.
