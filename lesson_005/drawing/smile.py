@@ -8,7 +8,8 @@ x = 578
 y = 181
 color = simple_draw.random_color()
 
-
+# TODO, переменные выше необходимо передать как параметры функции
+#  sd.resolution лучше убрать. Иначе может возникнуть непонятный сдвиг в основном файле.
 def smiles_draw():
     point = simple_draw.get_point(x, y)
     simple_draw.circle(point, 50, color)

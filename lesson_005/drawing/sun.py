@@ -3,7 +3,7 @@ import simple_draw
 
 x = 400
 y = 500
-
+# TODO, переменные выше необходимо передать как параметры функции
 
 def draw_sun():
     center = simple_draw.get_point(x, y)

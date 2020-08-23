@@ -5,7 +5,8 @@ import simple_draw as sd
 sd.resolution = (1500, 600)
 
 root_point = sd.get_point(1000, 30)
-
+# TODO, переменную выше необходимо передать как параметры функции
+#  sd.resolution лучше убрать. Иначе может возникнуть непонятный сдвиг в основном файле.
 
 def draw_branches(start_point=root_point, dif_angle=90, length=100):
     if length < 10:

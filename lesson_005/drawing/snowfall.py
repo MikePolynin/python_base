@@ -2,7 +2,7 @@
 import simple_draw as sd
 
 sd.resolution = (1500, 600)
-
+# TODO sd.resolution лучше убрать. Иначе может возникнуть непонятный сдвиг в основном файле.
 
 def snowfall():
     n = 5
