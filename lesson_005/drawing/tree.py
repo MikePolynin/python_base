@@ -20,5 +20,3 @@ def draw_branches(start_point=root_point, dif_angle=90, length=100):
     draw_branches(vector.end_point, vector.angle + dif_angle_1, vector.length * dif_length_1)
     draw_branches(vector.end_point, vector.angle - dif_angle_2, vector.length * dif_length_2)
 
-
-draw_branches()

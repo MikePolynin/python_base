@@ -18,17 +18,18 @@
 # пример см. lesson_005/results/04_painting.jpg
 # Приправить своей фантазией по вкусу (коты? коровы? люди? трактор? что придумается)
 import simple_draw
-import lesson_005.drawing.rainbow
-import lesson_005.drawing.wall
-import lesson_005.drawing.tree
+from lesson_005.drawing.rainbow import draw_rainbow
+from lesson_005.drawing.wall import draw_house
+from lesson_005.drawing.tree import draw_branches
 from lesson_005.drawing.sun import draw_sun
 from lesson_005.drawing.smile import smiles_draw
 from lesson_005.drawing.snowfall import snowfall
 
-
-# TODO, Михаил, нарисуйте пожалуйста радугу, домик и дерево функциями в этом модуле =)
-smiles_draw(578, 181, simple_draw.random_color())
-draw_sun(400, 500)
+draw_rainbow()
+draw_branches()
+draw_house()
+smiles_draw()
+draw_sun()
 snowfall()
 
 # Усложненное задание (делать по желанию)
