@@ -14,6 +14,9 @@ def draw_rainbow():
     for color in rainbow_colors:
         sd.circle(center, radius, color, 10)
         radius += 12
+    # TODO тут по сути меняется только цвет и view.
+    #  Предлагаю использовать тернарные операторы. Это сократит кол-во кода. Был пример в Lesson 03 07_wall.py
+    #  Попробуйте пожалуйста. В таком случае, цикл можно будет вынести за пределы блока if/else
     if view[0] == 0:
         for radius_white in range(940, 1025, 12):
             sd.circle(center, radius_white, sd.background_color, 2)

@@ -18,12 +18,12 @@
 # пример см. lesson_005/results/04_painting.jpg
 # Приправить своей фантазией по вкусу (коты? коровы? люди? трактор? что придумается)
 import simple_draw
-from lesson_005.drawing.rainbow import draw_rainbow
-from lesson_005.drawing.wall import draw_house
-from lesson_005.drawing.tree import draw_branches
-from lesson_005.drawing.sun import draw_sun
-from lesson_005.drawing.smile import smiles_draw
-from lesson_005.drawing.snowfall import snowfall
+from python_base.lesson_005.drawing.rainbow import draw_rainbow
+from python_base.lesson_005.drawing.wall import draw_house
+from python_base.lesson_005.drawing.tree import draw_branches
+from python_base.lesson_005.drawing.sun import draw_sun
+from python_base.lesson_005.drawing.smile import smiles_draw
+from python_base.lesson_005.drawing.snowfall import snowfall
 
 simple_draw.resolution = (1500, 600)
 
