@@ -22,12 +22,10 @@ def smiles_draw(x, y, color):
     right_eye_point = simple_draw.get_point(x + 20, y + 10)
     start_point = simple_draw.get_point(x + 10, y + 10)
     end_point = simple_draw.get_point(x + 30, y + 10)
-    # TODO, тоже можно упростить на примере TODO из rainbow.py
     if view[0] == 0:
         simple_draw.line(start_point, end_point, simple_draw.background_color)
         simple_draw.circle(right_eye_point, 10, color)
-        view[0] = 1
     else:
         simple_draw.circle(right_eye_point, 10, simple_draw.background_color)
         simple_draw.line(start_point, end_point, color)
-        view[0] = 0
+    view[0] = 0 if view[0] == 1 else view[0] == 0
