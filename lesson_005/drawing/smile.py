@@ -2,7 +2,8 @@
 
 import simple_draw
 
-view = [1]
+view = [1]  # TODO почему именно список, а не, к примеру, True/False? Но это не понадобится, лучше использовать две
+            #  глобальные переменные цветов (см. ниже)
 
 
 def smiles_draw(x, y, color):
@@ -26,6 +27,7 @@ def smiles_draw(x, y, color):
         simple_draw.line(start_point, end_point, simple_draw.background_color)
         simple_draw.circle(right_eye_point, 10, color)
     else:
-        simple_draw.circle(right_eye_point, 10, simple_draw.background_color)
         simple_draw.line(start_point, end_point, color)
+        simple_draw.circle(right_eye_point, 10, simple_draw.background_color)
+    # TODO Используйте такуй трюк для смены цветов: color1, color2 = color2, color1 и дублировать код не понадобится
     view[0] = 0 if view[0] == 1 else view[0] == 0
