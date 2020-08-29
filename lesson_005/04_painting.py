@@ -27,9 +27,10 @@ from lesson_005.drawing.snowfall import snowfall
 
 simple_draw.resolution = (1500, 600)
 
-# TODO Примените simple_draw.start/finish_drawing для ускорения рисования статической части картины
+simple_draw.start_drawing()
 draw_branches(simple_draw.get_point(1000, 30))
 draw_house()
+simple_draw.finish_drawing()
 
 while True:
     simple_draw.start_drawing()
