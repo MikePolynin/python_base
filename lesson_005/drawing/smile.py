@@ -29,7 +29,7 @@ def smiles_draw(x, y, color):
 
     if color_1 != simple_draw.background_color:
         color_1 = color
-    if color_2 != simple_draw.background_color:
+    else:
         color_2 = color
     simple_draw.line(start_point, end_point, color_1)
     simple_draw.circle(right_eye_point, 10, color_2)
