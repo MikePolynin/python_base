@@ -4,10 +4,15 @@ import simple_draw as sd
 fallen_snowflake_list = []
 fallen_snowflake_count = 0
 
-
+# TODO, Михаил, интересная реализация кода. Давайте попробуем упростить код. Полностью откажемся от функции globals().
+#  В каждой функции, где используем переменные fallen_snowflake_list и fallen_snowflake_count,
+#  просто укажем их как глобальные. Вы так делаете в delete_snowflake и в fallen_snowflakes.
+#  И просто будем заполнять их данными. Как я понял, мы сейчас создаём много лишних глобальных
+#  переменных типа snowflake_1 и т.д.
 def create_snowflakes(n):
     snowflake_count = 0
     i = 0
+    # TODO, в этом месте лучше идти циклом for исходя из кол-ва снежинок.
     while snowflake_count < n:
         if globals().get('snowflake_' + str(i)):
             i += 1
@@ -18,6 +23,7 @@ def create_snowflakes(n):
                                          sd.random_number(10, 70),
                                          sd.random_number(10, 20)]
             snowflake_count += 1
+
 
 
 def drawing_snowflakes(color):
