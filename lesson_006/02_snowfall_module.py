@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import simple_draw as sd
-import lesson_006.snowfall as snowfall
-# import python_base.lesson_006.snowfall as snowfall
+# import lesson_006.snowfall as snowfall
+import python_base.lesson_006.snowfall as snowfall
 
 # На основе кода из lesson_004/05_snowfall.py
 # сделать модуль snowfall.py в котором реализовать следующие функции
@@ -21,6 +21,8 @@ snowfall.create_snowflakes(5)
 while True:
     #  нарисовать_снежинки_цветом(color=sd.background_color)
     snowfall.drawing_snowflakes(sd.background_color)
+    # Если параметр sd.background_color указать как параметр по умолчанию, то, можно просто вызывать функцию без цвета
+    # и будет рисовать цветом по умолчанию =)
     #  сдвинуть_снежинки()
     snowfall.moving_snowflakes()
     #  нарисовать_снежинки_цветом(color)
@@ -37,3 +39,5 @@ while True:
         break
 
 sd.pause()
+
+# зачёт!
