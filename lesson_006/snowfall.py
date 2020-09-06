@@ -1,54 +1,55 @@
 # -*- coding: utf-8 -*-
 import simple_draw as sd
 
+snowflakes = {}
 fallen_snowflake_list = []
-fallen_snowflake_count = 0
 
-# TODO, Михаил, интересная реализация кода. Давайте попробуем упростить код. Полностью откажемся от функции globals().
-#  В каждой функции, где используем переменные fallen_snowflake_list и fallen_snowflake_count,
-#  просто укажем их как глобальные. Вы так делаете в delete_snowflake и в fallen_snowflakes.
-#  И просто будем заполнять их данными. Как я понял, мы сейчас создаём много лишних глобальных
-#  переменных типа snowflake_1 и т.д.
+
 def create_snowflakes(n):
-    snowflake_count = 0
-    i = 0
-    # TODO, в этом месте лучше идти циклом for исходя из кол-ва снежинок.
-    while snowflake_count < n:
-        if globals().get('snowflake_' + str(i)):
-            i += 1
-        else:
+    global snowflakes
+    if fallen_snowflake_list:
+        for i in fallen_snowflake_list:
             snowflake_name = 'snowflake_' + str(i)
-            globals()[snowflake_name] = [sd.random_number(5, 200),
-                                         sd.random_number(550, 650),
-                                         sd.random_number(10, 70),
-                                         sd.random_number(10, 20)]
-            snowflake_count += 1
-
+            snowflakes[snowflake_name] = [sd.random_number(5, 200),
+                                          sd.random_number(550, 650),
+                                          sd.random_number(10, 70),
+                                          sd.random_number(10, 20)]
+        fallen_snowflake_list.clear()
+    else:
+        for i in range(n):
+            snowflake_name = 'snowflake_' + str(i)
+            snowflakes[snowflake_name] = [sd.random_number(5, 200),
+                                          sd.random_number(550, 650),
+                                          sd.random_number(10, 70),
+                                          sd.random_number(10, 20)]
 
 
 def drawing_snowflakes(color):
-    for i in range(0, len(globals())):
-        if globals().get('snowflake_' + str(i)):
-            point = sd.get_point(globals().get('snowflake_' + str(i))[0], globals().get('snowflake_' + str(i))[1])
-            sd.snowflake(point, globals().get('snowflake_' + str(i))[2], color)
+    global snowflakes
+    for i in range(0, len(snowflakes)):
+        if snowflakes.get('snowflake_' + str(i)):
+            point = sd.get_point(snowflakes.get('snowflake_' + str(i))[0], snowflakes.get('snowflake_' + str(i))[1])
+            sd.snowflake(point, snowflakes.get('snowflake_' + str(i))[2], color)
         else:
             break
 
 
 def moving_snowflakes():
-    for i in range(0, len(globals())):
-        if globals().get('snowflake_' + str(i)):
-            globals().get('snowflake_' + str(i))[1] -= globals().get('snowflake_' + str(i))[3]
-            globals().get('snowflake_' + str(i))[0] += sd.random_number(-5, 5)
+    global snowflakes
+    for i in range(0, len(snowflakes)):
+        if snowflakes.get('snowflake_' + str(i)):
+            snowflakes.get('snowflake_' + str(i))[1] -= snowflakes.get('snowflake_' + str(i))[3]
+            snowflakes.get('snowflake_' + str(i))[0] += sd.random_number(-5, 5)
         else:
             break
 
 
 def fallen_snowflakes():
+    global snowflakes
     global fallen_snowflake_list
-    for i in range(0, len(globals())):
-        if globals().get('snowflake_' + str(i)):
-            if globals().get('snowflake_' + str(i))[1] <= globals().get('snowflake_' + str(i))[3]:
+    for i in range(0, len(snowflakes)):
+        if snowflakes.get('snowflake_' + str(i)):
+            if snowflakes.get('snowflake_' + str(i))[1] <= snowflakes.get('snowflake_' + str(i))[3]:
                 fallen_snowflake_list.append(i)
         else:
             pass
@@ -56,9 +57,7 @@ def fallen_snowflakes():
 
 
 def delete_snowflake():
+    global snowflakes
     global fallen_snowflake_list
-    global fallen_snowflake_count
-    fallen_snowflake_count = len(fallen_snowflake_list)
     for element in fallen_snowflake_list:
-        globals().__delitem__('snowflake_' + str(element))
-    fallen_snowflake_list.clear()
+        snowflakes.__delitem__('snowflake_' + str(element))
