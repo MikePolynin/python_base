@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import simple_draw as sd
-import lesson_006.snowfall as snowfall
-# import python_base.lesson_006.snowfall as snowfall
+# import lesson_006.snowfall as snowfall
+import python_base.lesson_006.snowfall as snowfall
 
 # На основе кода из lesson_004/05_snowfall.py
 # сделать модуль snowfall.py в котором реализовать следующие функции
