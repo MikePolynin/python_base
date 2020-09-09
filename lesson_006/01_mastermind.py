@@ -27,6 +27,7 @@
 #   проверить_число(NN) - возвращает словарь {'bulls': N, 'cows': N}
 # Загаданное число хранить в глобальной переменной.
 # Обратите внимание, что строки - это список символов.
+
 #
 # В текущем модуле (lesson_006/01_mastermind.py) реализовать логику работы с пользователем:
 #   модуль движка загадывает число
@@ -44,4 +45,38 @@
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
 
-# TODO здесь ваш код...
+from lesson_006.mastermind_engine import guess_the_number, check_the_number
+
+guess_the_number()
+user_input_list = []
+steps = 0
+while True:
+    user_input = input('Input your number:')
+    if len(user_input) != 4:
+        print('Wrong input')
+        continue
+    elif user_input[0].isdigit() and int(user_input[0]) == 0:
+        print('Wrong input')
+        continue
+    for element in user_input:
+        if not element.isdigit():
+            print('Wrong input')
+            break
+        elif int(element) in user_input_list:
+            print('Wrong input')
+            user_input_list.clear()
+            break
+        else:
+            user_input_list.append(int(element))
+    if len(user_input_list) == 4:
+        steps += 1
+        print(check_the_number(user_input_list))
+        if check_the_number(user_input_list)['bulls'] == 4:
+            print('You win by', steps, 'steps')
+            user_input_list.clear()
+            steps = 0
+            one_more_game = input('One more game? y/n')
+            if one_more_game == 'y' or 'Y':
+                guess_the_number()
+                continue
+        user_input_list.clear()
