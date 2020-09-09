@@ -48,9 +48,14 @@
 from lesson_006.mastermind_engine import guess_the_number, check_the_number
 
 guess_the_number()
+# TODO, предлагаю этот вызов функции реализовать в начале цикла while. Сейчас дважды вызываем. А так будем один раз.
 user_input_list = []
 steps = 0
 while True:
+
+    # TODO, Михаил, предлагаю создать специальную функцию для проверки числа пользователяь
+    #  Она будет просить ввести число и проверять, если число введено неправильно, просить заново, если правильное,
+    #  то возвращать это число. И далее будем использовать его в функции check_the_number.
     user_input = input('Input your number:')
     if len(user_input) != 4:
         print('Wrong input')
