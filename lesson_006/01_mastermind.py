@@ -47,41 +47,41 @@
 
 from lesson_006.mastermind_engine import guess_the_number, check_the_number
 
-guess_the_number()
-# TODO, предлагаю этот вызов функции реализовать в начале цикла while. Сейчас дважды вызываем. А так будем один раз.
 user_input_list = []
 steps = 0
-while True:
 
-    # TODO, Михаил, предлагаю создать специальную функцию для проверки числа пользователяь
-    #  Она будет просить ввести число и проверять, если число введено неправильно, просить заново, если правильное,
-    #  то возвращать это число. И далее будем использовать его в функции check_the_number.
+
+def input_check():
     user_input = input('Input your number:')
     if len(user_input) != 4:
         print('Wrong input')
-        continue
     elif user_input[0].isdigit() and int(user_input[0]) == 0:
         print('Wrong input')
-        continue
-    for element in user_input:
-        if not element.isdigit():
-            print('Wrong input')
-            break
-        elif int(element) in user_input_list:
-            print('Wrong input')
-            user_input_list.clear()
-            break
-        else:
-            user_input_list.append(int(element))
-    if len(user_input_list) == 4:
-        steps += 1
-        print(check_the_number(user_input_list))
-        if check_the_number(user_input_list)['bulls'] == 4:
-            print('You win by', steps, 'steps')
+    else:
+        for element in user_input:
+            if not element.isdigit():
+                print('Wrong input')
+                break
+            elif int(element) in user_input_list:
+                print('Wrong input')
+                user_input_list.clear()
+                break
+            else:
+                user_input_list.append(int(element))
+    return user_input_list
+
+
+guess_the_number()
+
+while True:
+    steps += 1
+    print(check_the_number(input_check()))
+    if check_the_number(user_input_list)['bulls'] == 4:
+        print('You win by', steps, 'steps')
+        one_more_game = input('Press "Y" for one more game')
+        if one_more_game == 'y' or 'Y':
             user_input_list.clear()
             steps = 0
-            one_more_game = input('One more game? y/n')
-            if one_more_game == 'y' or 'Y':
-                guess_the_number()
-                continue
-        user_input_list.clear()
+            guess_the_number()
+            continue
+    user_input_list.clear()
