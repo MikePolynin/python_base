@@ -22,7 +22,8 @@ def check_the_number(user_input):
         if user_digit in hidden_number:
             # TODO, получилась очень длинная строка.
             #  Можем просто проверять соответствует ли user_digit соответствующему числу hidden_number,
-            #  которое найдём срезом по уще умеющемуся индексу user_digit_index
+            #  которое найдём срезом по уще умеющемуся индексу user_digit_index.
+            #  Только первоначально, необходимо будет создать переменную список из check_the_number =)
             if user_digit_index == list(hidden_number).index(user_digit):
                 result['bulls'] += 1
             else:
