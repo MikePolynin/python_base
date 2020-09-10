@@ -20,5 +20,4 @@ def check_the_number(user_input):
                 result['bulls'] += 1
             else:
                 result['cows'] += 1
-    print(hidden_number)
     return result
