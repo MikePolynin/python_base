@@ -19,9 +19,10 @@ def guess_the_number():
 
     # variant 2
     hidden_number.append(randint(1, 9))
-    next_digit = randint(0, 9)
-    if next_digit not in hidden_number:
-        hidden_number.append(next_digit)
+    while len(hidden_number) < 4:
+        next_digit = randint(0, 9)
+        if next_digit not in hidden_number:
+            hidden_number.append(next_digit)
 
     # print(hidden_number)
 
