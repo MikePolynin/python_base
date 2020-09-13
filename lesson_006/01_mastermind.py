@@ -44,60 +44,20 @@
 # только с загаданным числом, а 01_mastermind - с пользователем и просто передает числа на проверку движку.
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
-
-from mastermind_engine import guess_the_number, check_the_number
-
-user_input_list = []
-# TODO, лишняя переменная. Предлагаю создавать переменную в цикле while. Равную тому что вернёт функция input_check.
-steps = 0  # TODO, переменную с под
-
-# TODO, функцию input_check предлагаю перенести к остальным функциям в mastermind_engine.py.
-#  Пусть будут в одном месте.
-def input_check():
-    user_input = input('Input your number:')
-    if len(user_input) != 4:
-        print('Wrong input')
-    # TODO, в этом месте .isdigit() будет лишний. Т.к. мы будем проверять сразу user_input =)
-    # TODO, ввод пользователя всегда текст, поэтому, условие int(user_input[0]) == 0 не сработает
-    #  Предлагаю без приведения к int проверять первую цифру пользователя как "0".
-    elif user_input[0].isdigit() and int(user_input[0]) == 0:
-        print('Wrong input')
-    else:
-        # TODO, цикл в нашем случае лишний можно сразу проверять user_input целиком на .isdigit()
-        #  и перенести его в одтельный блок elif.
-        for element in user_input:
-            if not element.isdigit():
-                print('Wrong input')
-                break
-            # TODO, Михаил, не очень понимаю пока что суть этой проверки =)
-            #  Предлагаю заменить её на проверку длины множества set() ввода пользователя
-            #  Таким образом сможем проверить повторяющиеся символы в числе пользователя.
-            #  Так же, в отдельном блоке elif основного условного оператора.
-            #  И уже в else, если все проверки прошли делать возврат числа пользователя списком.
-            elif int(element) in user_input_list:
-                print('Wrong input')
-                user_input_list.clear()
-                break
-            else:
-                user_input_list.append(int(element))
-    return user_input_list
-
-
-guess_the_number()
+from lesson_006 import mastermind_engine as me
 
 while True:
-
-    # TODO, Загадывание числа предлагаю перенести сразу после начала цикла,
-    #  тогда далее в коде вызывать функцию уже будет не нужно =)
-
-    steps += 1
-    print(check_the_number(input_check()))
-    if check_the_number(user_input_list)['bulls'] == 4:
-        print('You win by', steps, 'steps')
-        one_more_game = input('Press "Y" for one more game')
-        if one_more_game == 'y' or 'Y': # TODO, если ввести "y" или "Y", игра всё равно продолжается. Давайте поправим.
-            user_input_list.clear()  # TODO, лишняя строка, если создавать переменную исходя из возврата функции input_check =)
-            steps = 0
-            guess_the_number()
-            continue
-    user_input_list.clear()  # TODO, тоже, получается лишняя строка =)
+    me.guess_the_number()
+    while True:
+        user_input = me.input_check()
+        if user_input is not None:
+            result = me.check_the_number(user_input)
+            print(result)
+            if result['bulls'] == 4:
+                print('You win by', me.steps, 'steps')
+                break
+    one_more_game = input('Press "Y" for one more game or "N" for exit')
+    if one_more_game == 'y' or one_more_game == 'Y':
+        continue
+    if one_more_game == 'n' or one_more_game == 'N':
+        break
