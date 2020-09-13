@@ -45,7 +45,8 @@
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
 
-from lesson_006 import mastermind_engine as me
+from python_base.lesson_006 import mastermind_engine as me
+
 # from python_base.lesson_006 import mastermind_engine as me
 while True:
     me.guess_the_number()
@@ -59,3 +60,5 @@ while True:
     one_more_game = input('Press "N" for exit or any key to continue')
     if one_more_game in ['n', 'N']:
         break
+
+# зачёт!
