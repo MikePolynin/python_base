@@ -10,12 +10,19 @@ def guess_the_number():
     global steps
     steps = 0
     hidden_number.clear()
-    # hidden_number.add(randint(1, 9))  # variant 1
-    hidden_number.append(randint(1, 9))  # variant 2
-    while len(hidden_number) < 4:
-        next_digit = randint(0, 9)
-        # hidden_number.add(next_digit)  # variant 1
-        hidden_number.append(next_digit)  # variant 2
+
+    # variant 1
+    # hidden_number.add(randint(1, 9))
+    # while len(hidden_number) < 4:
+    #     next_digit = randint(0, 9)
+    #     hidden_number.add(next_digit)
+
+    # variant 2
+    hidden_number.append(randint(1, 9))
+    next_digit = randint(0, 9)
+    if next_digit not in hidden_number:
+        hidden_number.append(next_digit)
+
     # print(hidden_number)
 
 
