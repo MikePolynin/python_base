@@ -44,7 +44,7 @@
 # только с загаданным числом, а 01_mastermind - с пользователем и просто передает числа на проверку движку.
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
-from lesson_006 import mastermind_engine as me
+from python_base.lesson_006 import mastermind_engine as me
 
 while True:
     me.guess_the_number()
@@ -57,7 +57,10 @@ while True:
                 print('You win by', me.steps, 'steps')
                 break
     one_more_game = input('Press "Y" for one more game or "N" for exit')
+    # TODO, по сути, эту проверку можно убрать. Вне зависимости от ответа пользователя кроме "N" и "n" игра продолжится.
     if one_more_game == 'y' or one_more_game == 'Y':
         continue
+    # TODO, лучше elif. Иначе у нас получается вне зависимости от ответа сразу 2 проверки. А нам хватит одной =)
+    # TODO, а эту проверку можно упростить, объединив ответы в список [] и проверять наличие one_more_game в списке =)
     if one_more_game == 'n' or one_more_game == 'N':
         break
