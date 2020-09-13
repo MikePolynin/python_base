@@ -1,6 +1,7 @@
 from random import randint
 
-hidden_number = set()
+# hidden_number = set()  # variant 1
+hidden_number = []  # variant 2
 steps = 0
 
 
@@ -9,31 +10,29 @@ def guess_the_number():
     global steps
     steps = 0
     hidden_number.clear()
-    hidden_number.add(randint(1, 9))
+    # hidden_number.add(randint(1, 9))  # variant 1
+    hidden_number.append(randint(1, 9))  # variant 2
     while len(hidden_number) < 4:
         next_digit = randint(0, 9)
-        hidden_number.add(next_digit)
-    print(hidden_number)
+        # hidden_number.add(next_digit)  # variant 1
+        hidden_number.append(next_digit)  # variant 2
+    # print(hidden_number)
 
 
 def input_check():
-    user_input_list = []  # TODO, получилась лишняя переменная с учётом упрощения =)
-    # TODO, В этом месте лучше сделать цикл while и добиваться от пользователя правильного ответа любой ценой =)
-    #  Тогда в "01_mastermind.py" проверка "if user_input is not None:" будет лишней.
-    user_input = input('Input your number:')
-    if len(user_input) != 4:
-        print('Wrong input')
-    elif user_input[0] == '0':
-        print('Wrong input')
-    elif not user_input.isdigit():
-        print('Wrong input')
-    elif len(set(user_input)) != 4:
-        print('Wrong input')
-    else:
-        # for element in user_input:
-        #     user_input_list.append(int(element))
-        user_input_list = [int(element) for element in user_input]  # А так можно упростить до 1 строки =)
-        return user_input_list
+    while True:
+        user_input = input('Input your number:')
+        if len(user_input) != 4:
+            print('Wrong input')
+        elif user_input[0] == '0':
+            print('Wrong input')
+        elif not user_input.isdigit():
+            print('Wrong input')
+        elif len(set(user_input)) != 4:
+            print('Wrong input')
+        else:
+            user_input_list = [int(element) for element in user_input]
+            return user_input_list
 
 
 def check_the_number(user_input):
